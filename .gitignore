@@ -2,3 +2,6 @@
 /__pycache__
 Dockerfile
 teste.py
+scrapping.py
+scrapping_class.py
+routes/__pycache__
