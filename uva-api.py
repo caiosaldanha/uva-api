@@ -1,7 +1,7 @@
 # imports ===================
 # fastapi
 from fastapi import FastAPI, HTTPException, APIRouter
-from vitibrasilscraper import VitibrasilScraper
+from services.vitibrasilscraper import VitibrasilScraper
 # routes
 from routes.welcome import router as welcome_router
 from routes.production import router as production_router
@@ -26,7 +26,7 @@ This API performs an online data retrieval of Wine, Juice and Derivative product
   - Table grapes
   - Unclassified
 
-- **Comertialization** - Comertialization of wines and derivatives in Rio Grande do Sul
+- **Commercialization** - Commercialization of wines and derivatives in Rio Grande do Sul
 
 - **Importation** - Importation of grape derivatives
   - Table wines

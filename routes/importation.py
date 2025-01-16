@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from vitibrasilscraper import VitibrasilScraper
+from services.vitibrasilscraper import VitibrasilScraper
 
 router = APIRouter()
 
