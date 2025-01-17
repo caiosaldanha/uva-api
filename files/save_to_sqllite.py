@@ -6,7 +6,7 @@ from typing import List
 def fetch_data_from_api(base_url: str, route: str, year: int) -> pd.DataFrame:
     """Fetch data from API for a specific route and year."""
     url = f"{base_url}/api/v1/{route}/{year}"
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
     response.raise_for_status()
     return pd.DataFrame(response.json())
 
@@ -16,8 +16,8 @@ def save_to_sqlite(df: pd.DataFrame, db_file: str, table_name: str, if_exists: s
         df.to_sql(table_name, conn, if_exists=if_exists, index=False)
 
 def main():
-    base_url = "https://35.208.17.104"  # Replace with your API base URL
-    routes = ["production", "processing", "comercialization", "importation", "exportation"]
+    base_url = "http://backend:8000"  # Replace with your API base URL
+    routes = ["production", "processing", "commercialization", "importation", "exportation"]
     years = list(range(1970, 2024))
     db_file = "vitibrasil_data.db"
 
