@@ -14,9 +14,6 @@ async def v1_get_processing(year):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {e}")
 
-from fastapi import APIRouter, HTTPException
-from services.vitibrasilscraper import VitibrasilScraper
-
 @router.post('/processing/{year}', summary='Processing')
 async def v1_get_processing(year):
     try:

@@ -4,19 +4,20 @@ import pandas as pd
 
 app = Flask(__name__)
 
-PRODUCTION = "http://backend:8000/api/v1/processing/"  # FastAPI URL
+PRODUCTION = "http://backend:8000/api/v1/"  # FastAPI URL
 
 @app.route("/", methods=["GET", "POST"])
 def form():
     if request.method == "POST":
         year = request.form.get("year")
+        category = request.form.get("category")
 
-        if not year:
-            return render_template("form.html", error="Year is required")
+        # if not year:
+        #     return render_template("form.html", error="Year is required")
         
         # Make a POST request to FastAPI
         try:
-            response = requests.post(f"{PRODUCTION}{year}")
+            response = requests.post(f"{PRODUCTION}{category}/{year}")
             response.raise_for_status()  # Raise HTTPError for bad responses
             # Convert JSON to pandas DataFrame
             df = pd.DataFrame(response.json())
@@ -26,7 +27,7 @@ def form():
             return render_template("form.html", error=f"Error: {e}")
         
         # Render the response
-        return render_template("response.html", table_html=table_html)
+        return render_template("response.html", table_html=table_html, category=category)
     
     # Render the form for GET requests
     return render_template("form.html")

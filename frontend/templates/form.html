@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>UVA API</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <h1>Welcome to UVA API</h1>
-    <p>Data from 1970 to 2023</p>
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="POST" action="/">
-        <label for="year">Year:</label>
-        <select id="year" name="year" class="form-select" required>
-            {% for year in range(1970, 2024) %}
-                <option value="{{ year }}">{{ year }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Submit</button>
-    </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<head>
+  <title>UVA API by Caio Saldanha</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+
+<body class="container col-8">
+  <h1>UVA API</h1>
+  <p>Data from 1970 to 2023</p>
+
+  {% if error %}
+  <p style="color: red">{{ error }}</p>
+  {% endif %}
+
+  <form method="POST" action="/">
+    <label for="category">Category:</label>
+    <select id="category" name="category" class="form-select" required>
+      <option value="production" selected>production</option>
+      <option value="processing">processing</option>
+      <option value="commercialization">commercialization</option>
+      <option value="importation">importation</option>
+      <option value="exportation">exportation</option>
+    </select>
+    <label for="year">Year:</label>
+    <select id="year" name="year" class="form-select" required>
+      {% for year in range(2023, 1969, -1) %}
+      <option value="{{ year }}">{{ year }}</option>
+      {% endfor %}
+    </select>
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const defaultYear = 2023;
+    const yearSelect = document.getElementById("year");
+    yearSelect.value = defaultYear;
+  </script>
 </body>
+
 </html>
