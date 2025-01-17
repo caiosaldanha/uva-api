@@ -1,0 +1,27 @@
+# Welcome
+GET http://127.0.0.1:8000/
+
+###
+
+# Production
+GET http://127.0.0.1:8000/api/v1/production/2023
+
+###
+
+# Processing
+GET http://127.0.0.1:8000/api/v1/processing/2023
+
+###
+
+# Commercialization
+GET http://127.0.0.1:8000/api/v1/commercialization/2023
+
+###
+
+# Importation
+GET http://127.0.0.1:8000/api/v1/importation/2023
+
+###
+
+# Exportation
+GET http://127.0.0.1:8000/api/v1/exportation/2023
