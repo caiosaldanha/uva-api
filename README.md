@@ -23,6 +23,8 @@
 
 UVA API is a FastAPI + Flask project designed to **retrieve, process, and serve** data on grape-derived products produced in Brazil (with a particular focus on Rio Grande do Sul). The API allows you to easily obtain DataFrames for wines, juices, and grape derivatives from **1970 through 2023**, and can be extended for future years.
 
+![uva-api](./files/uvaapi-banner.webp)
+
 ---
 
 ## Project Description
