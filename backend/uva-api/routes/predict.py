@@ -1,6 +1,16 @@
-@app.get("/predict/commercialization")
-def predict_2024(db_path: str = "./files/vitibrasil_data_v2.db"):
+from fastapi import APIRouter, HTTPException
+import sqlite3
+import pandas as pd
 
+router = APIRouter()
+
+model = joblib.load("./files/linear_model.joblib")
+model_columns = joblib.load("./files/model_columns.joblib")
+
+@router.get("/predict/commercialization")
+def predict_2024():
+
+    db_path = "./files/vitibrasil_data_v2.db"
     conn = sqlite3.connect(db_path)
     query = """
         SELECT DISTINCT product, type
