@@ -1,4 +1,8 @@
 fastapi[standard]
 requests
 bs4
+uvicorn
+pydantic
+sqlalchemy
 pandas
+scikit-learn
