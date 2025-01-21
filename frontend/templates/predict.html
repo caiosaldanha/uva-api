@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DataFrame Table</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+
+<body>
+    <h1>UVA API</h1>
+    <div class="container mt-5">
+        <h4 class="text-center mb-4">2024 Commercialization Prediction</h4>
+        <button class="btn btn-primary" onclick="window.location.href='/'">
+            New search
+        </button>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if table_html %}
+        <div class="table-responsive">
+            {{ table_html | safe }}
+        </div>
+        {% else %}
+        <p class="text-center">No data available.</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+</body>
+
+</html>

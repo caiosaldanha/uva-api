@@ -1,4 +1,3 @@
-# train_model.py
 import sqlite3
 import pandas as pd
 import numpy as np
@@ -7,7 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 
-def train_linear_model(db_path='database.sqlite'):
+# used to train only one time then use the dumps
+
+def train_linear_model(db_path='../files/vitibrasil_data_v2.db'):
     # 1. Connect to sql lite
     conn = sqlite3.connect(db_path)
     
@@ -47,13 +48,13 @@ def train_linear_model(db_path='database.sqlite'):
     r2 = r2_score(y_test, y_pred)
     
     print(f"RMSE: {rmse:.2f}")
-    print(f"R²:   {r2:.4f}")
+    print(f"R2:   {r2:.4f}")
     
     # 9. model saving
-    joblib.dump(model, './files/linear_model.joblib')
+    joblib.dump(model, '../files/linear_model.joblib')
     
     # saving cols
-    joblib.dump(X.columns.tolist(), './files/model_columns.joblib')
+    joblib.dump(X.columns.tolist(), '../files/model_columns.joblib')
 
 if __name__ == '__main__':
     train_linear_model()

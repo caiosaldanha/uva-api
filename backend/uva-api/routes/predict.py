@@ -1,16 +1,17 @@
 from fastapi import APIRouter, HTTPException
 import sqlite3
 import pandas as pd
+import joblib
 
 router = APIRouter()
 
-model = joblib.load("./files/linear_model.joblib")
-model_columns = joblib.load("./files/model_columns.joblib")
+model = joblib.load("/app/files/linear_model.joblib")
+model_columns = joblib.load("/app/files/model_columns.joblib")
 
 @router.get("/predict/commercialization")
 def predict_2024():
 
-    db_path = "./files/vitibrasil_data_v2.db"
+    db_path = "/app/files/vitibrasil_data_v2.db"
     conn = sqlite3.connect(db_path)
     query = """
         SELECT DISTINCT product, type
