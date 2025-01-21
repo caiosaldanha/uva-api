@@ -111,22 +111,7 @@ Open your browser (or an API testing tool like [Postman](https://www.postman.com
 ## Project Architecture
 
 ### High-Level Diagram
-```
-        +-------------+      +-------------+
-        |    Flask    |      |   FastAPI   |
-        | (Front End) |      | (Back End)  |
-        +------+------+      +------+------+
-               |                    |
-               |                    |
-      +--------v--------------------v---------+
-      |       Business Logic & Services       |
-      |  (vitibrasilscraper, data handlers)   |
-      +----------------+----------------------+
-                       |
-                       v
-                 External Data
-              (Vitibrasil Website)
-```
+![architecture](./files/architecture.png "Architecture")
 
 1. **Front End (Flask)** – A simple user-facing interface for any basic views or demos.  
 2. **Back End (FastAPI)** – Responsible for:
