@@ -9,6 +9,7 @@ from routes.processing import router as processing_router
 from routes.commercialization import router as commercialization_router
 from routes.importation import router as importation_router
 from routes.exportation import router as exportation_router
+from routes.predict import router as predict_router
 
 
 # metadata ===================
@@ -110,3 +111,4 @@ app.include_router(processing_router, prefix="/v1", tags=['Processing'])
 app.include_router(commercialization_router, prefix="/v1", tags=['Commercialization'])
 app.include_router(importation_router, prefix="/v1", tags=['Importation'])
 app.include_router(exportation_router, prefix="/v1", tags=['Exportation'])
+app.include_router(predict_router, prefix="/v1", tags=['Predict'])
